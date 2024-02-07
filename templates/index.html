@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1>TO-DO Lists</h1>
+        <table id="customers" border="1">
+            <thead>
+                <th>SL.NO</th>
+                <th>Task</th>
+                <th>Description</th>
+                <th>Due Date</th>
+                <th colspan="2" id="mid">Action</th>
+            </thead>
+            {% for each in object_list %}
+            <tr>
+                <td>{{each.id}}</td>
+                <td>{{each.title}}</td>
+                <td>{{each.description}}</td>
+                <td>{{each.due_date}}</td>
+                <td>
+                    <a href="updpage/{{each.id}}"><button id="up">update</button></a>
+                </td>
+                <td>
+                    <a href="dellist/{{each.id}}"><button id="del">delete</button></a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br><br>
+        <a href="{% url 'addtask' %}"><button id="new3">Add Task</button></a>
+    </div>
+</body>
+
+</html>
